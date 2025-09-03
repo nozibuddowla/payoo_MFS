@@ -32,13 +32,13 @@
         </div>
 
         <div class=" min-h-[200px] grid grid-cols-3 gap-4 p-3">
-            <div class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl ">
+            <div id="add-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/wallet1.png" class="mx-auto" alt="">
                 <h2>Add Money</h2>
             </div>
-            <div class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="cash-out-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/send1.png" class="mx-auto" alt="">
-                <h2>Cashout</h2>
+                <h2>CashOut</h2>
             </div>
             <div class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/money1.png" class="mx-auto" alt="">
@@ -61,7 +61,7 @@
     
     <div class="all-form-sections max-w-lg mx-auto mt-8 ">
         <!-- add money -->
-        <div>
+        <div id="add-money-parent">
             <h2 class="font-semibold mb-4">Add Money</h2>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div class="mb-4">
@@ -95,8 +95,32 @@
                 <button class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="add-money-btn" type="button">Add Money</button>
             </form>
         </div>
+        <!-- cash out -->
+        <div id="cash-out-parent" style="display: none;">
+            <h2 class="my-5 font-bold">Cash out</h2>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div class="mb-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Agent Number</legend>
+                        <input type="text" id="agent-number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter 11 digit number" />
+                    </fieldset>
+                </div>
+                <div class="mb-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Amount</legend>
+                        <input type="text" id="withdraw-amount" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter Amount to withdraw" />
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Pin Number</legend>
+                        <input type="text" id="pin" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter 4 digit pin number" />
+                    </fieldset>
+                </div>
+                <button class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="withdraw-btn" type="button">Withdraw Money</button>
+            </form>
+        </div>
     </div>
-
     <script src="./home.js"></script>
 </body>
 </html>

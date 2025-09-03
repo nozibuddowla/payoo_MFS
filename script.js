@@ -13,7 +13,7 @@ document.getElementById("loginButton").addEventListener("click", function (event
     let pinNumberValueInt = parseInt(pinNumberValue);
 
     if (mobileNumber === mobileNumberValueInt && pinNumber === pinNumberValueInt) {
-        window.location.href="./main.html"
+        window.location.href="./home.html"
     } else {
         alert(`invalid credentials`);
         

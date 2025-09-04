@@ -40,11 +40,11 @@
                 <img src="./assets/send1.png" class="mx-auto" alt="">
                 <h2>CashOut</h2>
             </div>
-            <div class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="transfer-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/money1.png" class="mx-auto" alt="">
                 <h2>Transfer Money</h2>
             </div>
-            <div class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="get-bonus-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/bonus1.png" class="mx-auto" alt="">
                 <h2>Get Bonus</h2>
             </div>
@@ -61,7 +61,7 @@
     
     <div class="all-form-sections max-w-lg mx-auto mt-8 ">
         <!-- add money -->
-        <div id="add-money-parent">
+        <div id="add-money-parent" class="form">
             <h2 class="font-semibold mb-4">Add Money</h2>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div class="mb-4">
@@ -96,7 +96,7 @@
             </form>
         </div>
         <!-- cash out -->
-        <div id="cash-out-parent" style="display: none;">
+        <div id="cash-out-parent" class="form" style="display: none;">
             <h2 class="my-5 font-bold">Cash out</h2>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div class="mb-4">
@@ -119,6 +119,14 @@
                 </div>
                 <button class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="withdraw-btn" type="button">Withdraw Money</button>
             </form>
+        </div>
+        <!-- transfer money -->
+        <div id="transfer-money-parent" class="form" style="display: none;">
+            <h2 class="my-5 font-bold">Transfer Money</h2>
+        </div>
+        <!-- Get Bonus -->
+        <div id="get-bonus-parent" class="form" style="display: none;">
+            <h2 class="my-5 font-bold">Get Bonus</h2>
         </div>
     </div>
     <script src="./home.js"></script>

@@ -21,6 +21,15 @@ function setInnerText(value) {
     availableBalance.innerText = value;    
 }
 
+// function to toggle
+function handleToggle(id) {
+    let forms = document.getElementsByClassName("form");
+    for (const form of forms) {
+        form.style.display = "none";
+    }
+    document.getElementById(id).style.display = "block";
+}
+
 // add money feature
 document.getElementById("add-money-btn").addEventListener("click", function (event) {
     event.preventDefault();
@@ -81,11 +90,17 @@ document.getElementById("withdraw-btn").addEventListener("click", function (even
 
 // toggling feature
 document.getElementById("add-button").addEventListener("click", function () {
-    document.getElementById("cash-out-parent").style.display = "none";
-    document.getElementById("add-money-parent").style.display = "block";
+    handleToggle("add-money-parent");
 })
 
 document.getElementById("cash-out-button").addEventListener("click", function () {
-    document.getElementById("cash-out-parent").style.display = "block";
-    document.getElementById("add-money-parent").style.display = "none";
+    handleToggle("cash-out-parent");
+})
+
+document.getElementById("transfer-button").addEventListener("click", function () {
+    handleToggle("transfer-money-parent");
+})
+
+document.getElementById("get-bonus-button").addEventListener("click", function () {
+    handleToggle("get-bonus-parent");    
 })

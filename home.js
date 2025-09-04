@@ -2,14 +2,26 @@ console.log("f society");
 
 let validPin = 1234;
 
+// function to get input values
+function getInputValue(id) {
+    let element = document.getElementById(id); 
+    return element.value !== undefined ? element.value : element.innerText;
+}
+function getInputValueFloatNumber(id) {
+    return parseFloat(getInputValue(id));
+}
+function getInputValueIntNumber(id) {
+    return parseInt(getInputValue(id));
+}
+
 // add money feature
 document.getElementById("add-money-btn").addEventListener("click", function (event) {
     event.preventDefault();
-    let availableBalance = parseFloat(document.getElementById("available-balance").innerText)
-    let bank = document.getElementById("bank").value;
-    let accountNumber = document.getElementById("account-number").value;
-    let addAmount = parseFloat(document.getElementById("add-amount").value);
-    let addPin = parseInt(document.getElementById("add-pin").value);
+    let availableBalance = getInputValueFloatNumber("available-balance");
+    let bank = getInputValue("bank");
+    let accountNumber = getInputValue("account-number");
+    let addAmount = getInputValueFloatNumber("add-amount");
+    let addPin = getInputValueIntNumber("add-pin");
 
     if (accountNumber.length !== 11) {
         alert("please provide valid account number!");
@@ -22,24 +34,24 @@ document.getElementById("add-money-btn").addEventListener("click", function (eve
     }
 
     let totalNewBalance = availableBalance + addAmount;
+
     document.getElementById("available-balance").innerText = totalNewBalance;
     document.getElementById("add-amount").value = "";
-    document.getElementById("bank").value = "";
+    document.getElementById("bank").selectedIndex = 0;
     document.getElementById("account-number").value = "";
     document.getElementById("add-pin").value = "";
     
 })
 
-
 // cash out feature
 document.getElementById("withdraw-btn").addEventListener("click", function (event) {
     event.preventDefault();
-    let availableBalance = parseFloat(document.getElementById("available-balance").innerText);
-    let amount = parseFloat(document.getElementById("withdraw-amount").value);
+    let availableBalance = getInputValueFloatNumber("available-balance");
+    let amount = getInputValueFloatNumber("withdraw-amount");
     
 
-    let accountNumber = document.getElementById("agent-number").value;
-    let pin = parseInt(document.getElementById("pin").value);
+    let accountNumber = getInputValue("agent-number");
+    let pin = getInputValueIntNumber("pin");
     
 
     if (accountNumber.length !== 11) {
@@ -54,7 +66,9 @@ document.getElementById("withdraw-btn").addEventListener("click", function (even
 
     let currentBalance = availableBalance - amount;
     document.getElementById("available-balance").innerText = currentBalance;
-
+    document.getElementById("agent-number").value = "";
+    document.getElementById("withdraw-amount").value = "";
+    document.getElementById("pin").value = "";
 })
 
 // toggling feature

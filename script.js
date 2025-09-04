@@ -6,16 +6,13 @@ document.getElementById("loginButton").addEventListener("click", function (event
     let mobileNumber = 1922438860;
     let pinNumber = 1234;
 
-    let mobileNumberValue = document.getElementById("mobile-number").value;
-    let mobileNumberValueInt = parseInt(mobileNumberValue);
+    let mobileNumberValue = parseInt(document.getElementById("mobile-number").value);
 
-    let pinNumberValue = document.getElementById("pin-number").value;
-    let pinNumberValueInt = parseInt(pinNumberValue);
+    let pinNumberValue = parseInt(document.getElementById("pin-number").value);
 
-    if (mobileNumber === mobileNumberValueInt && pinNumber === pinNumberValueInt) {
-        window.location.href="./home.html"
+    if (mobileNumber === mobileNumberValue && pinNumber === pinNumberValue) {
+        window.location.href="./home.html";
     } else {
         alert(`invalid credentials`);
-        
     }
 })

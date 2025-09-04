@@ -14,6 +14,13 @@ function getInputValueIntNumber(id) {
     return parseInt(getInputValue(id));
 }
 
+// function to set innerText 
+function setInnerText(value) {
+    let availableBalance = document.getElementById("available-balance");
+    
+    availableBalance.innerText = value;    
+}
+
 // add money feature
 document.getElementById("add-money-btn").addEventListener("click", function (event) {
     event.preventDefault();
@@ -35,7 +42,7 @@ document.getElementById("add-money-btn").addEventListener("click", function (eve
 
     let totalNewBalance = availableBalance + addAmount;
 
-    document.getElementById("available-balance").innerText = totalNewBalance;
+    setInnerText(totalNewBalance);
     document.getElementById("add-amount").value = "";
     document.getElementById("bank").selectedIndex = 0;
     document.getElementById("account-number").value = "";
@@ -65,7 +72,8 @@ document.getElementById("withdraw-btn").addEventListener("click", function (even
     }
 
     let currentBalance = availableBalance - amount;
-    document.getElementById("available-balance").innerText = currentBalance;
+    setInnerText(currentBalance);
+
     document.getElementById("agent-number").value = "";
     document.getElementById("withdraw-amount").value = "";
     document.getElementById("pin").value = "";

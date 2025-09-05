@@ -32,27 +32,27 @@
         </div>
 
         <div class=" min-h-[200px] grid grid-cols-3 gap-4 p-3">
-            <div id="add-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="add-button" class="form-btn border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/wallet1.png" class="mx-auto" alt="">
                 <h2>Add Money</h2>
             </div>
-            <div id="cash-out-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="cash-out-button" class="form-btn border-1 border-[#0808081a]  text-center px-5 py-3 rounded-xl">
                 <img src="./assets/send1.png" class="mx-auto" alt="">
                 <h2>CashOut</h2>
             </div>
-            <div id="transfer-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="transfer-button" class="form-btn border-1 border-[#0808081a]  text-center px-5 py-3 rounded-xl">
                 <img src="./assets/money1.png" class="mx-auto" alt="">
                 <h2>Transfer Money</h2>
             </div>
-            <div id="get-bonus-button" class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="get-bonus-button" class="form-btn border-1 border-[#0808081a]  text-center px-5 py-3 rounded-xl">
                 <img src="./assets/bonus1.png" class="mx-auto" alt="">
                 <h2>Get Bonus</h2>
             </div>
-            <div class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="pay-bill-button" class="form-btn border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/purse1.png" class="mx-auto" alt="">
                 <h2>Pay Bill</h2>
             </div>
-            <div class="border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div class="form-btn border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/transaction1.png" class="mx-auto" alt="">
                 <h2>Transactions</h2>
             </div>
@@ -123,10 +123,66 @@
         <!-- transfer money -->
         <div id="transfer-money-parent" class="form" style="display: none;">
             <h2 class="my-5 font-bold">Transfer Money</h2>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div class="mb-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Use Account Number</legend>
+                        <input type="text" id="transfer-account-number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter 11 digit number" />
+                    </fieldset>
+                </div>
+                <div class="mb-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Amount</legend>
+                        <input type="text" id="transfer-amount" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter Amount to transfer" />
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Pin Number</legend>
+                        <input type="text" id="transfer-pin" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter 4 digit pin number" />
+                    </fieldset>
+                </div>
+                <button class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="send-btn" type="button">Send Now</button>
+            </form>
         </div>
         <!-- Get Bonus -->
         <div id="get-bonus-parent" class="form" style="display: none;">
             <h2 class="my-5 font-bold">Get Bonus</h2>
+        </div>
+        <!-- Pay Bill -->
+        <div id="pay-bill-parent" class="form" style="display: none;">
+            <h2 class="font-semibold mb-4">Pay Bill</h2>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div class="mb-4">
+                    <h3 class="font-medium">Select To Pay</h3>
+                    <select id="pay-bank" class="select bg-[#f4f5f7] mt-3 rounded-3xl w-full">
+                        <option disabled selected>Select Bank</option>
+                        <option>AB Bank</option>
+                        <option>IFIC Bank</option>
+                        <option>Dutch Bangla Bank</option>
+                        <option>Mutual Trust Bank</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Biller Account Number</legend>
+                        <input type="text" id="biller-account-number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter account number" />
+                    </fieldset>
+                </div>
+                <div class="mb-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Amount to Pay</legend>
+                        <input type="text" id="pay-amount" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Add Amount to Pay" />
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Pin Number</legend>
+                        <input type="text" id="pay-pin" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter 4 digit pin number" />
+                    </fieldset>
+                </div>
+                <button class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="pay-btn" type="button">Pay Now</button>
+            </form>
         </div>
     </div>
     <script src="./home.js"></script>

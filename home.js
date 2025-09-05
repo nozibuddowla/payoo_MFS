@@ -30,6 +30,17 @@ function handleToggle(id) {
     document.getElementById(id).style.display = "block";
 }
 
+function handleButtonToggle(id) {
+    let formBtns = document.querySelectorAll(".form-btn");
+    for (const btn of formBtns) {
+        btn.classList.remove("border-[#0874f2]", "bg-[#0874f20d]");
+        btn.classList.add("border-[#0808081a]");
+    }
+    let activeBtn = document.getElementById(id);
+    activeBtn.classList.remove("border-[#0808081a]");
+    activeBtn.classList.add("border-[#0874f2]", "bg-[#0874f20d]");
+}
+
 // add money feature
 document.getElementById("add-money-btn").addEventListener("click", function (event) {
     event.preventDefault();
@@ -88,19 +99,85 @@ document.getElementById("withdraw-btn").addEventListener("click", function (even
     document.getElementById("pin").value = "";
 })
 
+// transfer money features
+document.getElementById("send-btn").addEventListener("click", function (event) {
+    event.preventDefault();
+    let availableBalance = getInputValueFloatNumber("available-balance");
+    let transferAccountNumber = getInputValue("transfer-account-number");
+    let transferAmount = getInputValueFloatNumber("transfer-amount");
+    let transferPinNumber = getInputValueIntNumber("transfer-pin");
+
+    if (transferAccountNumber.length !== 11) {
+        alert("please provide valid account number!");
+        return;
+    }
+
+    if (validPin !== transferPinNumber) {
+        alert("Please provide valid pin number!");
+        return;
+    }
+
+    let currentBalance = availableBalance - transferAmount;
+    setInnerText(currentBalance);
+    document.getElementById("transfer-account-number").value = "";
+    document.getElementById("transfer-amount").value = "";
+    document.getElementById("transfer-pin").value = "";
+}) 
+
+// Pay Bill features
+document.getElementById("pay-btn").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let availableBalance = getInputValueFloatNumber("available-balance");
+
+    let bank = getInputValue("pay-bank");
+    let billerAccountNumber = getInputValue("biller-account-number");
+    let payAmount = getInputValueFloatNumber("pay-amount");
+    let payPin = getInputValueIntNumber("pay-pin");
+
+    if (billerAccountNumber.length !== 11) {
+        alert("please provide valid account number!");
+        return;
+    }
+
+    if (validPin !== payPin) {
+        alert("Please provide valid pin number!");
+        return;
+    }
+
+    let currentBalance = availableBalance - payAmount;
+    setInnerText(currentBalance);
+    document.getElementById("biller-account-number").value = "";
+    document.getElementById("pay-amount").value = "";
+    document.getElementById("pay-pin").value = "";
+})
+
 // toggling feature
 document.getElementById("add-button").addEventListener("click", function () {
     handleToggle("add-money-parent");
+    handleButtonToggle("add-button");
 })
 
 document.getElementById("cash-out-button").addEventListener("click", function () {
     handleToggle("cash-out-parent");
+    handleButtonToggle("cash-out-button");
+
 })
 
 document.getElementById("transfer-button").addEventListener("click", function () {
     handleToggle("transfer-money-parent");
+    handleButtonToggle("transfer-button");
+
 })
 
 document.getElementById("get-bonus-button").addEventListener("click", function () {
-    handleToggle("get-bonus-parent");    
+    handleToggle("get-bonus-parent"); 
+    handleButtonToggle("get-bonus-button");
+
+})
+
+document.getElementById("pay-bill-button").addEventListener("click", function () {
+    handleToggle("pay-bill-parent"); 
+    handleButtonToggle("pay-bill-button");
+
 })

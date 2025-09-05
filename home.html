@@ -11,7 +11,7 @@
     <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
-<body class="bg-[#f4f5f7]">
+<body class="bg-[#f4f5f7] min-h-screen">
     <div class="max-w-lg mx-auto bg-white rounded-b-xl">
         <div class=" min-h-[50px] flex justify-between items-center border-b-1 border-[#0808081a]">
             <div class="flex items-center">
@@ -52,14 +52,14 @@
                 <img src="./assets/purse1.png" class="mx-auto" alt="">
                 <h2>Pay Bill</h2>
             </div>
-            <div class="form-btn border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
+            <div id="transaction-button" class="form-btn border-1 border-[#0808081a] text-center px-5 py-3 rounded-xl">
                 <img src="./assets/transaction1.png" class="mx-auto" alt="">
                 <h2>Transactions</h2>
             </div>
         </div>
     </div>
     
-    <div class="all-form-sections max-w-lg mx-auto mt-8 ">
+    <div class="all-form-sections max-w-lg mx-auto my-8 ">
         <!-- add money -->
         <div id="add-money-parent" class="form">
             <h2 class="font-semibold mb-4">Add Money</h2>
@@ -148,6 +148,15 @@
         <!-- Get Bonus -->
         <div id="get-bonus-parent" class="form" style="display: none;">
             <h2 class="my-5 font-bold">Get Bonus</h2>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div class="mb-4">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend font-medium">Enter Bonus Coupon</legend>
+                        <input type="text" id="bonus-code" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" placeholder="Enter your coupon">
+                    </fieldset>
+                </div>
+                <button class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white text-xl" id="get-bonus-btn" type="button">Get Bonus</button>
+            </form>
         </div>
         <!-- Pay Bill -->
         <div id="pay-bill-parent" class="form" style="display: none;">
@@ -183,6 +192,17 @@
                 </div>
                 <button class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="pay-btn" type="button">Pay Now</button>
             </form>
+        </div>
+        <!-- Transactions -->
+        <div id="transaction-parent" class="form" style="display: none;">
+            <div class="flex justify-between items-center">
+                <h1 class="my-5 font-bold text-lg text-[#080808e6]">Transactions</h1>
+                <p class="text-[#08080880]">View All</p>
+            </div>
+            <div id="transaction-container">
+                
+            </div>
+            
         </div>
     </div>
     <script src="./home.js"></script>

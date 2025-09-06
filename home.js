@@ -47,6 +47,11 @@ function handleButtonToggle(id) {
     activeBtn.classList.add("border-[#0874f2]", "bg-[#0874f20d]");
 }
 
+// logout button functionality
+document.getElementById("logoutButton").addEventListener("click", function () {
+    window.location.href = "./index.html";
+})
+
 // add money feature
 document.getElementById("add-money-btn").addEventListener("click", function (event) {
     event.preventDefault();
@@ -54,6 +59,12 @@ document.getElementById("add-money-btn").addEventListener("click", function (eve
     let bank = getInputValue("bank");
     let accountNumber = getInputValue("account-number");
     let addAmount = getInputValueFloatNumber("add-amount");
+
+    if (addAmount <= 0) {
+        alert(`Invalid amount!`);
+        return;
+    }
+
     let addPin = getInputValueIntNumber("add-pin");
 
     if (accountNumber.length !== 11) {
@@ -89,6 +100,14 @@ document.getElementById("withdraw-btn").addEventListener("click", function (even
     let availableBalance = getInputValueFloatNumber("available-balance");
     let amount = getInputValueFloatNumber("withdraw-amount");
     
+    if (amount <= 0) {
+        alert("Invalid amount!");
+        return;
+    }
+    if (amount > availableBalance ) {
+        alert("You have not sufficient balance!");
+        return;
+    }
 
     let accountNumber = getInputValue("agent-number");
     let pin = getInputValueIntNumber("pin");
@@ -126,6 +145,15 @@ document.getElementById("send-btn").addEventListener("click", function (event) {
     let transferAccountNumber = getInputValue("transfer-account-number");
     let transferAmount = getInputValueFloatNumber("transfer-amount");
     let transferPinNumber = getInputValueIntNumber("transfer-pin");
+
+    if (transferAmount <= 0) {
+        alert("Invalid amount!");
+        return;
+    }
+    if (transferAmount > availableBalance ) {
+        alert("You have not sufficient balance!");
+        return;
+    }
 
     if (transferAccountNumber.length !== 11) {
         alert("please provide valid account number!");
